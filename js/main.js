@@ -115,9 +115,9 @@ btnAgregar.addEventListener("click", function (event) {
 
         precioTotal.innerHTML = `$ ${contadorTotal.toFixed(2)}`;
 
-        localStorage.setItem("contador: ",contador);
-        localStorage.setItem("totalEnProductos: ",totalEnProductos);
-        localStorage.setItem("contadorTotal: ",contadorTotal.toFixed(2));
+        localStorage.setItem("contador",contador);
+        localStorage.setItem("totalEnProductos",totalEnProductos);
+        localStorage.setItem("contadorTotal",contadorTotal.toFixed(2));
         
         //Borrar todos los txt nombre y number..toFixed(2)
         txtNombre.value="";
@@ -132,3 +132,14 @@ txtNumber.addEventListener("blur", function (event) {
     txtNumber.value = txtNumber.value.tim();
     
 });//txtNombre.blur
+
+window.addEventListener("load", function (event) {
+    contador = localStorage.getItem("contador");
+    totalEnProductos= localStorage.getItem("totalEnProductos");
+    contadorTotal= localStorage.getItem("contadorTotal");
+
+    contadorProductos.innerText = contador;
+    productosTotal.innerText = totalEnProductos;
+    precioTotal.innerText = contadorTotal ;
+    
+});
