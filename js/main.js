@@ -134,6 +134,15 @@ txtNumber.addEventListener("blur", function (event) {
 });//txtNombre.blur
 
 window.addEventListener("load", function (event) {
+    if (localStorage.getItem("contador")==null) {
+        localStorage.setItem("contador","0")
+    }
+    if (localStorage.getItem("totalEnProductos")==null) {
+        localStorage.setItem("totalEnProductos","0")
+    }
+    if (localStorage.getItem("contadorTotal")==null) {
+        localStorage.setItem("contadorTotal","0.0")
+    }
     contador = localStorage.getItem("contador");
     totalEnProductos= localStorage.getItem("totalEnProductos");
     contadorTotal= localStorage.getItem("contadorTotal");
