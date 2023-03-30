@@ -31,13 +31,19 @@ btnClear.addEventListener("click", function (event) {
     txtNombre.value="";
     txtNumber.value="";  
     cuerpoTabla[0].innerHTML="";  
-contador = 0;
-totalEnProductos = 0;
-contadorTotal = 0 ; 
+    contador = 0;
+    totalEnProductos = 0;
+    contadorTotal = 0 ; 
 
-contadorProductos.innerText = "0";
-productosTotal.innerText = "0";
-precioTotal.innerText = "$ 0" ;
+    contadorProductos.innerText = "0";
+    productosTotal.innerText = "0";
+    precioTotal.innerText = "$ 0" ;
+
+
+    localStorage.setItem("contador: ",contador);
+    localStorage.setItem("totalEnProductos: ",totalEnProductos);
+    localStorage.setItem("contadorTotal: ",contadorTotal.toFixed(2));
+
 })//btnClear click
 
 function validarCantidad() {
@@ -100,11 +106,19 @@ btnAgregar.addEventListener("click", function (event) {
         <tr>`;
 
         cuerpoTabla[0].insertAdjacentHTML("beforeend", row);
+
         contadorProductos.innerText = contador;
         totalEnProductos += parseFloat(txtNumber.value);
+
         productosTotal.innerHTML = totalEnProductos;
         contadorTotal += precio*parseFloat(txtNumber.value);
+
         precioTotal.innerHTML = `$ ${contadorTotal.toFixed(2)}`;
+
+        localStorage.setItem("contador: ",contador);
+        localStorage.setItem("totalEnProductos: ",totalEnProductos);
+        localStorage.setItem("contadorTotal: ",contadorTotal.toFixed(2));
+        
         //Borrar todos los txt nombre y number..toFixed(2)
         txtNombre.value="";
         txtNumber.value=""; 
