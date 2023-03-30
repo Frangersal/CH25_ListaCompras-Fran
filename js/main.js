@@ -128,12 +128,12 @@ btnAgregar.addEventListener("click", function (event) {
 });//btnAgregar.click
 
 txtNumber.addEventListener("blur", function (event) {
-    event.preventDefault();
-    txtNumber.value = txtNumber.value.tim();
+    event.preventDefault(); 
     
 });//txtNombre.blur
 
 window.addEventListener("load", function (event) {
+    
     if (localStorage.getItem("contador")==null) {
         localStorage.setItem("contador","0")
     }
@@ -143,12 +143,12 @@ window.addEventListener("load", function (event) {
     if (localStorage.getItem("contadorTotal")==null) {
         localStorage.setItem("contadorTotal","0.0")
     }
-    contador = localStorage.getItem("contador");
-    totalEnProductos= localStorage.getItem("totalEnProductos");
-    contadorTotal= localStorage.getItem("contadorTotal");
+    contador = parseInt(localStorage.getItem("contador"));
+    totalEnProductos= parseInt(localStorage.getItem("totalEnProductos"));
+    contadorTotal= parseFloat(localStorage.getItem("contadorTotal"));
 
     contadorProductos.innerText = contador;
     productosTotal.innerText = totalEnProductos;
-    precioTotal.innerText = contadorTotal ;
+    precioTotal.innerText = `$ ${contadorTotal}`;
     
 });
